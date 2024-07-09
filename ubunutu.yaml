@@ -7,14 +7,17 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ubuntu
+      app: ubuntu-deployment
   template:
     metadata:
       labels:
-        app: ubuntu
+        app: ubuntu-deployment
     spec:
       containers:
       - name: ubuntu
         image: ubuntu:20.04
-        command: ["sleep"]
-        args: ["infinity"]
+        command: ["/bin/bash"]
+        args: ["-c", "apt-get update && apt-get install -y redis && sleep infinity"]
+        env:
+          - name: REDIS_HOST
+            value: "redis-service"
