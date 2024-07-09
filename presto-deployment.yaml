@@ -1,17 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: presto
+  name: presto-coord
   namespace: default
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: presto
+      type: coord
   template:
     metadata:
       labels:
         app: presto
+        type: coord
     spec:
       containers:
       - name: presto
@@ -19,13 +21,31 @@ spec:
         ports:
         - containerPort: 8080
         volumeMounts:
-        - name: redis-properties
+        - name: presto-redis-config
           mountPath: /opt/presto-server/etc/catalog/redis.properties
           subPath: redis.properties
+        - name: presto-coord-config
+          mountPath: /opt/presto-server/etc/config.properties
+          subPath: config.properties
       volumes:
-      - name: redis-properties
+      - name: presto-redis-config
         configMap:
-          name: presto-redis-properties
+          name: configmap
+          items:
+          - key: presto-redis-config
+            path: redis.properties
+      - name: presto-coord-config
+        configMap:
+          name: configmap
+          items:
+          - key: presto-coord-config
+            path: config.properties
+      - name: presto-coord-config
+        configMap:
+          name: configmap
+          items:
+          - key: presto-coord-config
+            path: config.properties
 
 ---
 apiVersion: v1

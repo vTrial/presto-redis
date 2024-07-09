@@ -4,3 +4,18 @@ metadata:
   name: configmap
 data:
   redis-service: redis-service
+  presto-redis-config: |
+    connector.name=redis
+    redis.table-names=table
+    redis.nodes=redis-service.default.svc.cluster.local:6379
+  presto-coord-config: |
+    coordinator=true
+    node-scheduler.include-coordinator=false
+    http-server.http.port=8080
+    query.max-memory=50GB
+    query.max-memory-per-node=1GB
+  presto-worker-config: |
+    coordinator=false
+    http-server.http.port=8080
+    query.max-memory=50GB
+    query.max-memory-per-node=1GB
