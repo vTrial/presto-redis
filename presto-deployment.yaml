@@ -1,20 +1,44 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: presto-coordinator
+  name: presto
   namespace: default
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: presto-coordinator
+      app: presto
   template:
     metadata:
       labels:
-        app: presto-coordinator
+        app: presto
     spec:
       containers:
       - name: presto
         image: prestodb/presto:latest
         ports:
-            - containerPort: 8080
+        - containerPort: 8080
+        volumeMounts:
+        - name: redis-properties
+          mountPath: /opt/presto-server/etc/catalog/redis.properties
+          subPath: redis.properties
+      volumes:
+      - name: redis-properties
+        configMap:
+          name: presto-redis-properties
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: presto-svc
+  namespace: default
+spec:
+  selector:
+    app: presto
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30000
