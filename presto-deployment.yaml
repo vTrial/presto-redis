@@ -40,12 +40,6 @@ spec:
           items:
           - key: presto-coord-config
             path: config.properties
-      - name: presto-coord-config
-        configMap:
-          name: configmap
-          items:
-          - key: presto-coord-config
-            path: config.properties
 
 ---
 apiVersion: v1

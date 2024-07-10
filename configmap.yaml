@@ -12,10 +12,6 @@ data:
     coordinator=true
     node-scheduler.include-coordinator=false
     http-server.http.port=8080
-    query.max-memory=50GB
-    query.max-memory-per-node=1GB
   presto-worker-config: |
     coordinator=false
     http-server.http.port=8080
-    query.max-memory=50GB
-    query.max-memory-per-node=1GB
