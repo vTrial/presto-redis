@@ -16,8 +16,20 @@ spec:
       containers:
       - name: ubuntu
         image: ubuntu:20.04
-        command: ["/bin/bash"]
-        args: ["-c", "apt-get update && apt-get install -y redis && sleep infinity"]
+        command:
+          - "/bin/bash"
+          - "-c"
+        args:
+          - |
+            apt-get update && \
+            apt-get install -y redis wget && \
+            wget -q https://download.oracle.com/java/22/latest/jdk-22_linux-x64_bin.deb && \
+            apt install ./jdk-22_linux-x64_bin.deb && \
+            rm ./jdk-22_linux-x64_bin.deb && \
+            wget -q https://repo1.maven.org/maven2/io/trino/trino-cli/452/trino-cli-452-executable.jar && \
+            mv trino-cli-452-executable.jar trino && \
+            chmod +x trino && \
+            sleep infinity
         env:
           - name: REDIS_HOST
             value: "redis-service"
