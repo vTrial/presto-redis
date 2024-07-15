@@ -14,4 +14,4 @@ data:
     http-server.http.port=8080
   presto-worker-config: |
     coordinator=false
-    http-server.http.port=8080
+    http-server.http.port=8081
