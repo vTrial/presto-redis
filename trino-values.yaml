@@ -3,4 +3,3 @@ additionalCatalogs:
     connector.name=redis
     redis.table-names=table
     redis.nodes=redis-service.default.svc.cluster.local:6379
-
