@@ -2,7 +2,6 @@ presto-version: 0.287
 
 jvm: |-
   -server
-  -Xmx4G
   -XX:+ExitOnOutOfMemoryError
   -Djdk.attach.allowAttachSelf=true
 
