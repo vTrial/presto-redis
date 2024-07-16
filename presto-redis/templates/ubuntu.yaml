@@ -27,7 +27,7 @@ spec:
             wget -q https://download.oracle.com/java/{{ .Values.version.java }}/latest/jdk-{{ .Values.version.java }}_linux-x64_bin.deb && \
             apt install ./jdk-{{ .Values.version.java }}_linux-x64_bin.deb && \
             rm ./jdk-{{ .Values.version.java }}_linux-x64_bin.deb && \
-            wget -q https://repo1.maven.org/maven2/com/facebook/presto/presto-cli/{{ .Values.version.presto }}/presto-cli-{{ .Values.version.presto }}-executable.jar
+            wget -q https://repo1.maven.org/maven2/com/facebook/presto/presto-cli/{{ .Values.version.presto }}/presto-cli-{{ .Values.version.presto }}-executable.jar && \
             mv presto-cli-{{ .Values.version.presto }}-executable.jar presto && \
             chmod +x presto && \
             sleep infinity
