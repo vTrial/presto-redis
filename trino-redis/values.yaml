@@ -1,4 +1,18 @@
+version:
+  java: 22
+  trino: 452
+
+port:
+  redis: 6379
+
+replicas:
+  redis: 2
+  rockylinux: 2
+  ubuntu: 1
+
 trino:
+  server:
+    workers: 2
   additionalCatalogs:
     redis: |-
       connector.name=redis

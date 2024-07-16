@@ -4,7 +4,7 @@ metadata:
   name: redis-deployment
   namespace: {{ .Release.Namespace }}
 spec:
-  replicas: 2
+  replicas: {{ .Values.replicas.redis }}
   selector:
     matchLabels:
       app: redis-deployment
@@ -17,7 +17,7 @@ spec:
       - name: redis
         image: redis:latest
         ports:
-            - containerPort: 6379
+            - containerPort: {{ .Values.port.redis }}
 ---
 apiVersion: v1
 kind: Service
@@ -29,5 +29,5 @@ spec:
     app: redis-deployment
   ports:
     - protocol: TCP
-      port: 6379
-      targetPort: 6379
+      port: {{ .Values.port.redis }}
+      targetPort: {{ .Values.port.redis }}

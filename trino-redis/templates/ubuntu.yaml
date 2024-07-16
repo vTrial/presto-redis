@@ -4,7 +4,7 @@ metadata:
   name: ubuntu-deployment
   namespace: {{ .Release.Namespace }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicas.ubuntu }}
   selector:
     matchLabels:
       app: ubuntu-deployment
@@ -23,10 +23,10 @@ spec:
           - |
             apt-get update && \
             apt-get install -y redis wget && \
-            wget -q https://download.oracle.com/java/22/latest/jdk-22_linux-x64_bin.deb && \
-            apt install ./jdk-22_linux-x64_bin.deb && \
-            rm ./jdk-22_linux-x64_bin.deb && \
-            wget -q https://repo1.maven.org/maven2/io/trino/trino-cli/452/trino-cli-452-executable.jar && \
+            wget -q https://download.oracle.com/java/{{ .Values.version.java }}/latest/jdk-{{ .Values.version.java }}_linux-x64_bin.deb && \
+            apt install ./jdk-{{ .Values.version.java }}_linux-x64_bin.deb && \
+            rm ./jdk-{{ .Values.version.java }}_linux-x64_bin.deb && \
+            wget -q https://repo1.maven.org/maven2/io/trino/trino-cli/{{ .Values.version.trino }}/trino-cli-{{ .Values.version.trino }}-executable.jar && \
             mv trino-cli-452-executable.jar trino && \
             chmod +x trino && \
             sleep infinity

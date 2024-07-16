@@ -5,14 +5,14 @@ metadata:
   namespace: {{ .Release.Namespace }}
 data:
   redis-service: redis-service
-  presto-redis-config: |
-    connector.name=redis
-    redis.table-names=table
-    redis.nodes=redis-service.default.svc.cluster.local:6379
-  presto-coord-config: |
-    coordinator=true
-    node-scheduler.include-coordinator=false
-    http-server.http.port=8080
-  presto-worker-config: |
-    coordinator=false
-    http-server.http.port=8081
+  # presto-redis-config: |
+  #   connector.name=redis
+  #   redis.table-names=table
+  #   redis.nodes=redis-service.default.svc.cluster.local:6379
+  # presto-coord-config: |
+  #   coordinator=true
+  #   node-scheduler.include-coordinator=false
+  #   http-server.http.port=8080
+  # presto-worker-config: |
+  #   coordinator=false
+  #   http-server.http.port=8081

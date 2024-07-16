@@ -4,7 +4,7 @@ metadata:
   name: rocky-linux-deployment
   namespace: {{ .Release.Namespace }}
 spec:
-  replicas: 2
+  replicas: {{ .Values.replicas.rockylinux }}
   selector:
     matchLabels:
       app: rockylinux
