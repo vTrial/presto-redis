@@ -2,6 +2,8 @@ version:
   java: 11
   presto: 0.288
 
+host:
+  redis: redis-service.default.svc.cluster.local:6379
 port:
   redis: 6379
 
