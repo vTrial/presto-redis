@@ -1,0 +1,10 @@
+apiVersion: v2
+appVersion: 1.16.0
+dependencies:
+- name: trino
+  repository: https://trinodb.github.io/charts
+  version: 0.25.0
+description: A Helm chart for Kubernetes
+name: trino-redis
+type: application
+version: 0.1.0
