@@ -3,7 +3,7 @@ entries:
   presto:
   - apiVersion: v2
     appVersion: 0.285.1
-    created: "2024-07-23T10:22:49.641725241-07:00"
+    created: "2024-07-23T10:31:04.89118101-07:00"
     description: The official Helm chart for Presto
     digest: c5b7b006e90da531f25bb8dcdad6031cd6cbcf40aeee50c85d00923f144f7b98
     home: https://prestodb.io
@@ -17,6 +17,6 @@ entries:
     - https://github.com/prestodb/presto-helm-charts
     type: application
     urls:
-    - charts/presto-0.2.0.tgz
+    - presto-0.2.0.tgz
     version: 0.2.0
-generated: "2024-07-23T10:22:49.626614941-07:00"
+generated: "2024-07-23T10:31:04.87793721-07:00"
