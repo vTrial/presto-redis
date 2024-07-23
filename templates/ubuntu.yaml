@@ -23,9 +23,9 @@ spec:
           - |
             apt-get update && \
             apt-get install -y redis wget openjdk-11-jdk-headless && \ 
-            wget -q https://repo1.maven.org/maven2/com/facebook/presto/presto-cli/{{ .Values.version.presto }}/presto-cli-{{ .Values.version.presto }}-executable.jar && \
-            mv presto-cli-{{ .Values.version.presto }}-executable.jar presto && \
-            chmod +x presto && \
+            wget -q https://repo1.maven.org/maven2/io/trino/trino-cli/{{ .Values.version.trino }}/trino-cli-{{ .Values.version.trino }}-executable.jar && \
+            mv trino-cli-{{ .Values.version.trino }}-executable.jar trino && \
+            chmod +x trino && \
             sleep infinity
         env:
           - name: REDIS_HOST
