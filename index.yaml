@@ -1,22 +1,18 @@
 apiVersion: v1
 entries:
-  presto:
+  presto-redis:
   - apiVersion: v2
-    appVersion: 0.285.1
-    created: "2024-07-23T11:40:54.623365653-07:00"
-    description: The official Helm chart for Presto
-    digest: c5b7b006e90da531f25bb8dcdad6031cd6cbcf40aeee50c85d00923f144f7b98
-    home: https://prestodb.io
-    icon: https://prestodb.io/docs/current/_static/logo.png
-    keywords:
-    - presto
-    - prestodb
-    name: presto
-    sources:
-    - https://github.com/prestodb/presto
-    - https://github.com/prestodb/presto-helm-charts
+    appVersion: 1.16.0
+    created: "2024-07-23T11:49:18.085079925-07:00"
+    dependencies:
+    - name: presto
+      repository: https://prestodb.github.io/presto-helm-charts
+      version: 0.2.0
+    description: A Helm chart for Kubernetes
+    digest: d21e9d8ec2f4f4e09166e63507cfa9ac90769373f7d1be31914826deb40f8773
+    name: presto-redis
     type: application
     urls:
-    - charts/presto-0.2.0.tgz
-    version: 0.2.0
-generated: "2024-07-23T11:40:54.596614953-07:00"
+    - presto-redis-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-07-23T11:49:18.070605325-07:00"
